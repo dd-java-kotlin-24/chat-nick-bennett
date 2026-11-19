@@ -58,7 +58,8 @@ In the initial implementation, there will be two entities, with the attributes s
     | PK | `channel_id` | `Long` | |
     | UK1 | `external_key` | `UUID` | |
     | UK2 | `name` | `String` | `max length = 50` |
-    | | `description` | `String` | |
+    | | `description` | `String` | (Nullable)|
+    |IX1 | `created`| `Instant` | |
     
 - `message`
 
@@ -68,6 +69,8 @@ In the initial implementation, there will be two entities, with the attributes s
     | UK1 | `external_key` | `UUID` | |
     | | `sender` | `String` | `max length = 50` |
     | | `content` | `String` | |
+    | FK1, IX1 | `channel_id`|`Long` | Foreign key ref to `channel.channel_id`|
+    |IX1 | `stored` | `Instant` | |
 
 ## Device/external services
 
